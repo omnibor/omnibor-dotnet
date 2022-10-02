@@ -1,0 +1,97 @@
+﻿name: Build
+
+on:
+  push:
+    branches:
+      - main
+      - renovate/*
+  pull_request:
+  release:
+    types:
+      - published
+  workflow_dispatch:
+
+env:
+  DOTNET_NOLOGO: true
+  DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
+  DOTNET_CLI_TELEMETRY_OPTOUT: true
+  MINVERBUILDMETADATA: build.${{github.run_number}}
+
+jobs:
+  build:
+    name: Build-${{matrix.os}}
+    runs-on: ${{matrix.os}}
+    strategy:
+      matrix:
+        os: [ ubuntu-latest, windows-latest, macOS-latest ]
+    steps:
+      - name: "Checkout"
+        uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # tag=v3.0.2
+        with:
+          lfs: true
+          fetch-depth: 0
+      - name: "Install .NET Core SDK"
+        uses: actions/setup-dotnet@a351d9ea84bc76ec7508debf02a39d88f8b6c0c0 # tag=v2.1.1
+
+      - name: "Dotnet Tool Restore"
+        run: dotnet tool restore
+
+      - name: "Dotnet Cake Build"
+        run: dotnet cake --target=Build
+
+      - name: "Dotnet Cake Benchmark"
+        run: dotnet cake --target=Benchmark
+
+      - name: "Dotnet Cake Test"
+        run: dotnet cake --target=Test
+
+      - name: "Dotnet Cake Pack"
+        run: dotnet cake --target=Pack
+
+      - name: "Publish artifacts"
+        uses: actions/upload-artifact@3cea5372237819ed00197afe530f5a7ea3e805c8 # tag=v3.1.0
+        with:
+          name: ${{matrix.os}}
+          path: "./artifacts"
+
+  push-github-packages:
+    name: "Push GitHub Packages"
+    needs: build
+    if: github.ref == 'refs/heads/main' || github.event_name == 'release'
+    environment:
+      name: "GitHub Packages"
+      url: https://github.com/JamieMagee/gitbom-dotnet/packages
+    permissions:
+      packages: write
+    runs-on: windows-latest
+    steps:
+      - name: "Download Artifact"
+        uses: actions/download-artifact@fb598a63ae348fa914e94cd0ff38f362e927b741 # tag=v3.0.0
+        with:
+          name: "windows-latest"
+      - name: "Dotnet NuGet Add Source"
+        run: dotnet nuget add source https://nuget.pkg.github.com/JamieMagee/index.json --name GitHub --username JamieMagee --password ${{secrets.GITHUB_TOKEN}}
+        shell: pwsh
+      - name: "Dotnet NuGet Push"
+        run: dotnet nuget push .\*.nupkg --api-key ${{ github.token }} --source GitHub --skip-duplicate
+        shell: pwsh
+
+  push-nuget:
+    name: "Push NuGet Packages"
+    needs: build
+    if: github.event_name == 'release'
+    environment:
+      name: "NuGet"
+      url: https://www.nuget.org/packages/JamieMagee.GitBOM
+    runs-on: windows-latest
+    steps:
+      - name: "Download Artifact"
+        uses: actions/download-artifact@fb598a63ae348fa914e94cd0ff38f362e927b741 # tag=v3.0.0
+        with:
+          name: "windows-latest"
+      - name: "Dotnet NuGet Push"
+        run: |
+          Get-ChildItem .\ -Filter *.nupkg |
+          Where-Object { !$_.Name.Contains('preview') } |
+          ForEach-Object { dotnet nuget push $_ --source https://api.nuget.org/v3/index.json --skip-duplicate --api-key ${{secrets.NUGET_API_KEY}} }
+        shell: pwsh

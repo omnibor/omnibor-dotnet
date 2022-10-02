@@ -1,0 +1,77 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GitBOM.GitOid", "src\GitBOM.GitOid\GitBOM.GitOid.csproj", "{F2A57F46-5354-4D17-A5B1-721774513EAA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{93221E3C-5A70-490D-B196-DDECBFDAE070}"
+	ProjectSection(SolutionItems) = preProject
+		src\Directory.Build.props = src\Directory.Build.props
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{D8B4C56E-2CD8-4E28-B5D8-F15EA9B2AD59}"
+	ProjectSection(SolutionItems) = preProject
+		test\Directory.Build.props = test\Directory.Build.props
+		test\.editorconfig = test\.editorconfig
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GitBOM.GitOid.Tests", "test\GitBOM.GitOid.Tests\GitBOM.GitOid.Tests.csproj", "{E3160CF9-87AC-45A7-A35F-4050EA6BBE44}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{660A30CB-1275-48F6-9A58-912F7EDA77CF}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		.gitattributes = .gitattributes
+		.gitignore = .gitignore
+		build.cake = build.cake
+		Directory.Build.props = Directory.Build.props
+		Directory.Build.targets = Directory.Build.targets
+		dotnet-tools.json = dotnet-tools.json
+		global.json = global.json
+		README.md = README.md
+		renovate.json = renovate.json
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{0BDBD564-8EA9-41BA-BFA1-C9FF2165CAD1}"
+	ProjectSection(SolutionItems) = preProject
+		.github\release-drafter.yml = .github\release-drafter.yml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{0D0148A2-934D-466E-84C5-087AFF4B6F7C}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\build.yml = .github\workflows\build.yml
+		.github\workflows\codeql.yml = .github\workflows\codeql.yml
+		.github\workflows\release-drafter.yml = .github\workflows\release-drafter.yml
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GitBOM.GitOid.Benchmark", "benchmark\GitBOM.GitOid.Benchmark\GitBOM.GitOid.Benchmark.csproj", "{B65D52E0-504C-4C72-B05E-122AAEC9ABBF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "benchmark", "benchmark", "{0A747625-236E-4851-9DCC-7499710C01DD}"
+	ProjectSection(SolutionItems) = preProject
+		benchmark\.editorconfig = benchmark\.editorconfig
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F2A57F46-5354-4D17-A5B1-721774513EAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2A57F46-5354-4D17-A5B1-721774513EAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2A57F46-5354-4D17-A5B1-721774513EAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2A57F46-5354-4D17-A5B1-721774513EAA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E3160CF9-87AC-45A7-A35F-4050EA6BBE44}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3160CF9-87AC-45A7-A35F-4050EA6BBE44}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3160CF9-87AC-45A7-A35F-4050EA6BBE44}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3160CF9-87AC-45A7-A35F-4050EA6BBE44}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B65D52E0-504C-4C72-B05E-122AAEC9ABBF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B65D52E0-504C-4C72-B05E-122AAEC9ABBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B65D52E0-504C-4C72-B05E-122AAEC9ABBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B65D52E0-504C-4C72-B05E-122AAEC9ABBF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F2A57F46-5354-4D17-A5B1-721774513EAA} = {93221E3C-5A70-490D-B196-DDECBFDAE070}
+		{E3160CF9-87AC-45A7-A35F-4050EA6BBE44} = {D8B4C56E-2CD8-4E28-B5D8-F15EA9B2AD59}
+		{0BDBD564-8EA9-41BA-BFA1-C9FF2165CAD1} = {660A30CB-1275-48F6-9A58-912F7EDA77CF}
+		{0D0148A2-934D-466E-84C5-087AFF4B6F7C} = {0BDBD564-8EA9-41BA-BFA1-C9FF2165CAD1}
+		{B65D52E0-504C-4C72-B05E-122AAEC9ABBF} = {0A747625-236E-4851-9DCC-7499710C01DD}
+	EndGlobalSection
+EndGlobal

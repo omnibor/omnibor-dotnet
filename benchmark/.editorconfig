@@ -1,0 +1,19 @@
+﻿##########################################
+# StyleCop
+##########################################
+
+[*]
+# SA0001: XML comment analysis is disabled due to project configuration
+# Justification: Comments turned off
+# https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/SA0001.md
+dotnet_diagnostic.SA0001.severity = none
+
+##########################################
+# Custom
+##########################################
+
+[*]
+# CA1014: Mark assemblies with CLSCompliant
+# Justification: This is not a library
+# https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/quality-rules/ca1014
+dotnet_diagnostic.CA1014.severity = none
