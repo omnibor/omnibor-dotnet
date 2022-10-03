@@ -16,4 +16,12 @@ public class GitOid
     [Benchmark]
     public async Task<string> Sha1GitOidFromBytesAsync() => (await GitBOM.GitOid.GitOid
         .CreateFromBytesAsync(HashAlgorithm.Sha1, ObjectType.Blob, DataStream).ConfigureAwait(false)).ToString();
+
+    [Benchmark]
+    public string Sha256GitOidFromBytes() => GitBOM.GitOid.GitOid
+        .CreateFromBytes(HashAlgorithm.Sha256, ObjectType.Blob, DataBytes).ToString();
+
+    [Benchmark]
+    public async Task<string> Sha256GitOidFromBytesAsync() => (await GitBOM.GitOid.GitOid
+        .CreateFromBytesAsync(HashAlgorithm.Sha256, ObjectType.Blob, DataStream).ConfigureAwait(false)).ToString();
 }
