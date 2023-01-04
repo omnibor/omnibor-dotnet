@@ -1,6 +1,6 @@
-﻿# GitBOM.NET
+# GitBOM.NET
 
-[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/JamieMagee/gitbom-dotnet/Build?style=for-the-badge)](https://github.com/JamieMagee/gitbom-dotnet/actions/workflows/build.yml?query=branch%3Amain)
+[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/JamieMagee/gitbom-dotnet/build.yml?branch=main&style=for-the-badge)](https://github.com/JamieMagee/gitbom-dotnet/actions/workflows/build.yml?query=branch%3Amain)
 ![stability-experimental](https://img.shields.io/badge/stability-experimental-orange.svg?style=for-the-badge)
 
 An experimental implementation of [GitBOM][1] in .NET. Based on [gitbom-rs][2].
