@@ -2,7 +2,7 @@
 
 using System.Text;
 
-public record GitOid
+public sealed record GitOid
 {
     private GitOid(HashAlgorithm hashAlgorithm, ObjectType objectType, byte[] value)
     {
@@ -21,7 +21,7 @@ public record GitOid
 
     public override string ToString() => $"{this.HashAlgorithm}:{this.Hash()}";
 
-    public Uri Uri() => new($"gitoid:{this.ObjectType.DisplayName()}:{this.HashAlgorithm.DisplayName()}:{this.Hash()}");
+    public Uri Uri() => new($"gitoid:{this.ObjectType.GetName()}:{this.HashAlgorithm.GetName()}:{this.Hash()}");
 
     public static GitOid CreateFromBytes(HashAlgorithm hashAlgorithm, ObjectType objectType, byte[] content)
     {
@@ -30,8 +30,8 @@ public record GitOid
             throw new ArgumentNullException(nameof(content));
         }
 
-        var digester = hashAlgorithm.GetDigester();
-        var prefix = $"{objectType.DisplayName()} {content.Length}\0";
+        using var digester = hashAlgorithm.GetDigester();
+        var prefix = $"{objectType.GetName()} {content.Length}\0";
         var value = digester.ComputeHash(Encoding.ASCII.GetBytes(prefix).Concat(content).ToArray());
 
         return new GitOid(hashAlgorithm, objectType, value);
@@ -48,8 +48,8 @@ public record GitOid
             throw new ArgumentNullException(nameof(content));
         }
 
-        var digester = hashAlgorithm.GetDigester();
-        var prefix = $"{objectType.DisplayName()} {content.Length}\0";
+        using var digester = hashAlgorithm.GetDigester();
+        var prefix = $"{objectType.GetName()} {content.Length}\0";
         await using var stream = new MemoryStream();
         await stream.WriteAsync(Encoding.ASCII.GetBytes(prefix), cancellationToken).ConfigureAwait(false);
         await content.CopyToAsync(stream, cancellationToken).ConfigureAwait(false);
