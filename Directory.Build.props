@@ -16,11 +16,11 @@
     <Authors>Jamie Magee</Authors>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageProjectUrl>https://github.com/JamieMagee/gitbom-dotnet</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/JamieMagee/omnibor-dotnet</PackageProjectUrl>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <RepositoryUrl>https://github.com/JamieMagee/gitbom-dotnet.git</RepositoryUrl>
+    <RepositoryUrl>https://github.com/JamieMagee/omnibor-dotnet.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-    <PackageReleaseNotes>https://github.com/JamieMagee/gitbom-dotnet/releases</PackageReleaseNotes>
+    <PackageReleaseNotes>https://github.com/JamieMagee/omnibor-dotnet/releases</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup Label="Package References">

@@ -1,4 +1,4 @@
-﻿namespace GitBOM.GitOid.Benchmark.Benchmarks;
+﻿namespace OmniBOR.GitOid.Benchmark.Benchmarks;
 
 using BenchmarkDotNet.Attributes;
 

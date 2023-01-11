@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup Label="Project References">
-    <ProjectReference Include="..\..\src\GitBOM.GitOid\GitBOM.GitOid.csproj" />
+    <ProjectReference Include="..\..\src\OmniBOR.GitOid\OmniBOR.GitOid.csproj" />
   </ItemGroup>
 
   <ItemGroup Label="Package References">

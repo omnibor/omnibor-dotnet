@@ -1,4 +1,4 @@
-﻿namespace GitBOM.GitOid.Tests;
+﻿namespace OmniBOR.GitOid.Tests;
 
 using FluentAssertions;
 

@@ -1,4 +1,4 @@
-﻿namespace GitBOM.GitOid;
+﻿namespace OmniBOR.GitOid;
 
 public enum HashAlgorithm
 {

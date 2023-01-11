@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GitBOM.GitOid", "src\GitBOM.GitOid\GitBOM.GitOid.csproj", "{F2A57F46-5354-4D17-A5B1-721774513EAA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OmniBOR.GitOid", "src\OmniBOR.GitOid\OmniBOR.GitOid.csproj", "{F2A57F46-5354-4D17-A5B1-721774513EAA}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{93221E3C-5A70-490D-B196-DDECBFDAE070}"
 	ProjectSection(SolutionItems) = preProject
@@ -13,7 +13,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{D8B4C56E-2
 		test\.editorconfig = test\.editorconfig
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GitBOM.GitOid.Tests", "test\GitBOM.GitOid.Tests\GitBOM.GitOid.Tests.csproj", "{E3160CF9-87AC-45A7-A35F-4050EA6BBE44}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OmniBOR.GitOid.Tests", "test\OmniBOR.GitOid.Tests\OmniBOR.GitOid.Tests.csproj", "{E3160CF9-87AC-45A7-A35F-4050EA6BBE44}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{660A30CB-1275-48F6-9A58-912F7EDA77CF}"
 	ProjectSection(SolutionItems) = preProject
@@ -41,7 +41,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{
 		.github\workflows\release-drafter.yml = .github\workflows\release-drafter.yml
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GitBOM.GitOid.Benchmark", "benchmark\GitBOM.GitOid.Benchmark\GitBOM.GitOid.Benchmark.csproj", "{B65D52E0-504C-4C72-B05E-122AAEC9ABBF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OmniBOR.GitOid.Benchmark", "benchmark\OmniBOR.GitOid.Benchmark\OmniBOR.GitOid.Benchmark.csproj", "{B65D52E0-504C-4C72-B05E-122AAEC9ABBF}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "benchmark", "benchmark", "{0A747625-236E-4851-9DCC-7499710C01DD}"
 	ProjectSection(SolutionItems) = preProject
